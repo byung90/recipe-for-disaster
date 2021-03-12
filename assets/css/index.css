@@ -1,0 +1,32 @@
+/* background image */
+img {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* containers */
+.title-container, .enter-container {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+}
+
+/* elements */
+h1 {
+  display: flex;
+  align-self: center;
+  padding: 20px;
+  background-color: gray;
+}
+
+.enter-container a {
+  display: flex;
+  align-self: center;
+  padding: 20px;
+  font-size: 24px;
+  background-color: greenyellow;
+  border-radius: 15px;
+  color: black;
+}
