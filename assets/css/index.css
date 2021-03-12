@@ -21,10 +21,12 @@ h1 {
   background-color: gray;
 }
 
-button {
+.enter-container a {
   display: flex;
   align-self: center;
   padding: 20px;
+  font-size: 24px;
   background-color: greenyellow;
   border-radius: 15px;
+  color: black;
 }

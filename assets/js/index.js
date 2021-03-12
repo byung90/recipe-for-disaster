@@ -1,0 +1,19 @@
+var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
+var apiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
+var backgroundImage;
+
+$(document).ready(function () {
+  console.log(1);
+  fetch(giphyAPIUrl + "?api_key=" + apiKey + "&q=food&limit=1")
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.data);
+      backgroundImage = data.data[0].images.original.url;
+      altTitle = data.data[0].title;
+      $("#background-image").attr("src", backgroundImage);
+      $("#background-image").attr("alt", altTitle);
+    });
+});
