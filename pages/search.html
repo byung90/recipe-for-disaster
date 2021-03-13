@@ -20,8 +20,32 @@
   <!-- Refer to Wireframes -->
 
   <!-- Header & Title Goes Here: Ticket #3 -->
+  <div class="row">
+    <div class="cell title-container">
+      <h1 class="row align-center">Recipe for Disaster</h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row align-center">
+    <div class="cell enter-container">
+      <h2 class="align-center">Search Recipes</h2>
+    </div>
+  </div>
+ 
 
   <!-- Make Tabs Here: Ticket #4 -->
+  <ul class="tabs" data-tabs id="choice-tabs">
+    <li class="tabs-title is-active"><a href="#ingredients" aria-selected="true">Ingredients</a></li>
+    <li class="tabs-title"><a href="#cuisine" aria-selected="true">Cuisine</a></li>
+    <li class="tabs-title"><a href="#diet" aria-selected="true">Diet</a></li>
+    <li class="tabs-title"><a href="#allergies" aria-selected="true">Allergies</a></li>
+  </ul>
+  <div class="tabs-content" data-tabs-content="search-criteria">
+    <div class="tabs-panel is-active" id="ingredients">Ingredients</div>
+    <div class="tabs-panel" id="cuisine">Cuisine</div>
+    <div class="tabs-panel" id="diet">Diet</div>
+    <div class="tabs-panel" id="allergies">Allergies</div>
+  </div>
   <!-- Make Search and Pot Containers inside Tabs created above: Ticket #5 -->
   <!-- Make Search bar inside Search Container created above: Ticket #6-->
 
@@ -32,11 +56,22 @@
   <!-- Jquery UI JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <!-- Foundation UI JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.core.min.js”
+    integrity=sha512-VjrFGrbntgayKrSj6xLEBUvBI/cokQiLTn3zOsmlX1m3LL0v8aCKCoj/Yu8tVNZBBaGRApcCQJldteGJdCl37g=="
+    crossorigin=“anonymous”></script>
+  <script src=“https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.tabs.min.js”
+    integrity="sha512-m+WN3xvaL+QvLl8dSFyCpqBuvrydX3lhn58I3GM/J2vq1oXaKXZbsPjsjPf2k6M47g0aQSSnwQCSCMhQG2Dt3Q=="
+    crossorigin=“anonymous”></script>
+  <script src=“https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.imageLoader.min.js”
+    integrity="sha512-x+0pv0lzhXur88J+KzgaLJJQXGZMv8OCX6585m02LWbMZeGz83wXpSTkKqWXc1rW+UVecNelK4tUHh8m0jT5BQ=="
+    crossorigin=“anonymous”></script>
+  <script src=“https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.keyboard.min.js”
+    integrity="sha512-ZhcrUdi3wqZH+oLrx9+ukAmXjD1mAYmq6syNRcwT+rU8LcwuG7jkW56z0E718ew4OUKXFObpT5ijkgZ3PqNmzQ=="
+    crossorigin=“anonymous”></script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
     integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-
   <!-- Page Specific JS -->
-  <script src="assets/js/search.js"></script>
+  <script src="./search.js"></script>
 </body>
 
 </html>
