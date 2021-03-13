@@ -43,7 +43,25 @@
   <div class="tabs-content" data-tabs-content="search-criteria">
     <div class="tabs-panel is-active" id="ingredients">Ingredients</div>
     <div class="tabs-panel" id="cuisine">Cuisine</div>
-    <div class="tabs-panel" id="diet">Diet</div>
+    <div class="tabs-panel" class="grid-x grid-padding-x" id="diet">
+      <!-- create checkboxes - Done  -->
+      <!-- Create list in 2 even columns.
+      Display the options alphabetically. - Done
+      The options are here: https://spoonacular.com/food-api/docs#Diets -->
+          <fieldset class="large-7 cell" class="grid-x">
+          <input id="glutenFree" type="checkbox"><label for="glutenFree">Gluten Free</label>
+          <input id="ketogenic" type="checkbox"><label for="ketogenic">Ketogenic</label>
+          <input id="lactoVegetarian" type="checkbox"><label for="lactoVegetarian">Lacto-Vegetarian</label>
+          <input id="ovoVegetarian" type="checkbox"><label for="ovoVegetarian">Ovo-Vegetarian</label>
+          <input id="paleo" type="checkbox"><label for="paleo">Paleo</label>
+          <input id="pescetarian" type="checkbox"><label for="pescetarian">Pescetarian</label>
+          <input id="primal" type="checkbox"><label for="primal">Primal</label>
+          <input id="vegan" type="checkbox"><label for="vegan">Vegan</label>
+          <input id="vegetarian" type="checkbox"><label for="vegetarian">Vegetarian</label>
+          <input id="whole30" type="checkbox"><label for="whole30">Whole30</label>
+        </fieldset>
+    </div>
+
     <div class="tabs-panel" id="allergies">Allergies</div>
   </div>
   <!-- Make Search and Pot Containers inside Tabs created above: Ticket #5 -->
