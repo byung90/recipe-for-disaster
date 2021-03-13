@@ -1,8 +1,9 @@
 var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
 var apiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
 
+// Call a giphy for background
 $(document).ready(function () {
-  console.log(1);
+  // Calling giphy search query of "food" and returning only 1 result
   fetch(giphyAPIUrl + "?api_key=" + apiKey + "&q=food&limit=1")
     .then(function (response) {
       console.log(response);
