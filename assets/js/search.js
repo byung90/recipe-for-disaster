@@ -11,22 +11,19 @@ var recipeSearchBtn = $("#recipe-search-btn");
 
 // Search for Recipe - This will need to move to recipie_list.js later
 $(document).ready(function () {
-  console.log(1);
   fetch(url + "?ingredients=apples,flour&apiKey=" + apikey)
     .then(function (response) {
       console.log(response);
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
-
+      console.log(data);
     })
 });
 
 // Get Current Tab
 function getCurrentTab() {
-  var currentTab = $("#search-criteria").children(".is-active").text();
-  console.log(currentTab);
+  currentTab = $("#search-criteria").children(".is-active").text();
 }
 
 // Button Statuses
@@ -37,17 +34,17 @@ function buttonStatuses() {
     recipeSearchBtn.hide();
   }
   else if (currentTab === "Cuisine") {
-    previousBtn.hide();
+    previousBtn.show();
     nextBtn.show();
     recipeSearchBtn.hide();
   }
   else if (currentTab === "Diet") {
-    previousBtn.hide();
+    previousBtn.show();
     nextBtn.show();
     recipeSearchBtn.hide();
   }
   else {
-    previousBtn.hide();
+    previousBtn.show();
     nextBtn.hide();
     recipeSearchBtn.show();
   }
@@ -57,7 +54,6 @@ nextBtn.on("click", function (e) {
   e.preventDefault();
 
   if (currentTab === "Ingredients") {
-    // window.location.href = "#cuisine";
     $("#search-criteria").foundation('selectTab', "#cuisine");
   }
   else if (currentTab === "Cuisine") {
@@ -66,12 +62,11 @@ nextBtn.on("click", function (e) {
   else {
     $("#search-criteria").foundation('selectTab', "#allergies");
   }
-
 });
 
 previousBtn.on("click", function (e) {
   e.preventDefault();
-  getCurrentTab();
+
   if (currentTab === "Cuisine") {
     $("#search-criteria").foundation('selectTab', "#ingredients");
   }
@@ -83,7 +78,11 @@ previousBtn.on("click", function (e) {
   }
 });
 
+// Update button and current tab on tab change
 $("#search-criteria").on('change.zf.tabs', function () {
   getCurrentTab();
   buttonStatuses();
 });
+
+//set button status
+buttonStatuses();
