@@ -1,3 +1,17 @@
 .tabs {
   width: auto;
 }
+
+#search-container{
+  border-right: 1px solid #eaeaea;
+  flex-wrap: wrap;
+}
+
+#pot-container{
+  flex-wrap: wrap;
+}
+
+.ingredient-card {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
