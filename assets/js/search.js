@@ -1,8 +1,10 @@
 // Load foundations JS plugins
 $(document).foundation();
 
-var url = " https://api.spoonacular.com/recipes/findByIngredients";
+var url = " https://api.spoonacular.com/";
 var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
+var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
+var giphyApiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
 var tabNavigationEl = $(".tab-navigation-container");
 var currentTab = $("#search-criteria").children(".is-active").text();
 var previousBtn = $("#previous-btn");
@@ -17,7 +19,7 @@ var searchCriteria = {
 
 // Search for Recipe - This will need to move to recipie_list.js later
 $(document).ready(function () {
-  fetch(url + "?ingredients=apples,flour&apiKey=" + apikey)
+  fetch(url + "recipes/findByIngredients?ingredients=apples,flour&apiKey=" + apikey)
     .then(function (response) {
       console.log(response);
       return response.json();
@@ -26,6 +28,43 @@ $(document).ready(function () {
       console.log(data);
     })
 });
+
+// Autocomplete Ingredient Search
+$("#ingredient-search-button").on("click", function (e) {
+  e.preventDefault();
+  fetch(url + "food/ingredients/autocomplete?apiKey=" + apikey + "&number=5&query=appl")
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      displayIngredientCards(data);
+    })
+})
+
+// Display Ingredients into Ingredient Card
+function displayIngredientCards(listOfIngredients) {
+  var searchResultContainerEl = $('.search-result-container');
+  // create cards
+  $(listOfIngredients).each(function (index) {
+    searchResultContainerEl.append('<div class=\'card ingredient-card small-3 draggable\'><div class="image-container" data-ingredient=\'' + listOfIngredients[index].name + '\'><img></div><div class=\'card-section\'><p>' + listOfIngredients[index].name + '</p></div></div>');
+    fetch(giphyAPIUrl + "?api_key=" + giphyApiKey + "&q=" + listOfIngredients[index].name + "&limit=1")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        let backgroundImage = data.data[0].images.original.url;
+        let altTitle = data.data[0].title;
+        $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("src", backgroundImage);
+        $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("alt", altTitle);
+      });
+  })
+
+}
+
+
 
 // Get Current Tab
 function getCurrentTab() {
