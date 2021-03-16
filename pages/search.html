@@ -44,6 +44,15 @@
   <div class="tabs-content" data-tabs-content="search-criteria">
     <div class="tabs-panel is-active" id="ingredients">
       <button id="ingredient-search-button">Search</button>
+    <div class="input-group">
+        <input type="text" class="form-control" id="ingSearchInput" placeholder="Enter an Ingredient">
+        <div class="input-group-button">
+          <input type="submit" class="button" value="Submit">
+        </div>
+        </div>
+          <p><i>Click and drag ingredients to pot</i></p>
+        </div>
+      </div>
       <div class="grid-x">
         <div id="search-container" class="cell small-6">
           <div class="grid-x search-result-container">
@@ -51,6 +60,7 @@
           </div>
         </div>
         <div id="pot-container" class="cell small-6 pot-dropzone">
+           <p><strong>Added to Pot!</strong></p>
           <div class="grid-x new-location">
 
           </div>
@@ -169,7 +179,7 @@
     <a class="button" href="" id="next-btn">Next</a>
     <a class="button" href="" id="recipe-search-btn">Search</a>
   </div>
-
+ 
   <!-- Jquery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Jquery UI JS -->
