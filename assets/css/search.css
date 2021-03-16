@@ -1,3 +1,43 @@
 .tabs {
   width: auto;
 }
+
+#search-container{
+  border-right: 1px solid #eaeaea;
+  flex-wrap: wrap;
+}
+
+#pot-container{
+  flex-wrap: wrap;
+  padding-left: 15px;
+}
+
+.ingredient-card, .added-ingredient-card{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  touch-action: none;
+  user-select: none;
+  position: relative;
+}
+
+.image-container{
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+}
+
+.ingredient-card img, .added-ingredient-card img {
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}
+
+.tab-navigation-container {
+  margin-top: 20px;
+  text-align: center;
+}
