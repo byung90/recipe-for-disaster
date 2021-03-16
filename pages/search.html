@@ -46,19 +46,19 @@
       <div class="grid-x">
         <div id="search-container" class="cell small-6">
           <div class="grid-x">
-            <div class="card ingredient-card small-3">
+            <div class="card ingredient-card small-3 draggable">
               <img src="../assets/images/download.jpeg" alt="placeholder">
               <div class="card-section">
                 <p>Ingredient Name</p>
               </div>
             </div>
-            <div class="card ingredient-card small-3">
+            <div class="card ingredient-card small-3 draggable">
               <img src="../assets/images/download.jpeg" alt="placeholder">
               <div class="card-section">
                 <p>Ingredient Name</p>
               </div>
             </div>
-            <div class="card ingredient-card small-3">
+            <div class="card ingredient-card small-3 draggable">
               <img src="../assets/images/download.jpeg" alt="placeholder">
               <div class="card-section">
                 <p>Ingredient Name</p>
@@ -66,11 +66,10 @@
             </div>
           </div>
         </div>
-        <div id="pot-container" class="cell small-6">
-          <div class="grid-x">
+        <div id="pot-container" class="cell small-6 pot-dropzone">
+          <div class="grid-x new-location">
 
           </div>
-          <div class="">HI</div>
         </div>
       </div>
 
@@ -125,6 +124,8 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
     integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+  <!-- Drag and Drop - InteractJS -->
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
   <!-- Page Specific JS -->
   <script src="../assets/js/search.js"></script>
 </body>
