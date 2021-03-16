@@ -42,20 +42,33 @@
   </ul>
   <div class="tabs-content" data-tabs-content="search-criteria">
     <div class="tabs-panel is-active" id="ingredients">
-      <div id="search-container">
-        <!-- create the search bar for ingredients -->
-        <div class="input-group">
-          <input type="text" class="form-control" id="ingSearchInput" placeholder="Enter an Ingredient">
-          <div class="input-group-button">
-            <input type="submit" class="button" value="Submit">
-          </div>
+      <div class="grid-x"> 
+        <div class="cell small-6">
+          <fieldset>
+            <!-- create the search bar for ingredients -->
+            <div id="search-container">
+              <div class="input-group">
+                <input type="text" class="form-control" id="ingSearchInput" placeholder="Enter an Ingredient">
+                <div class="input-group-button">
+                  <input type="submit" class="button" value="Submit">
+                </div>
+                </div>
+                  <p><i>Click and drag ingredients to pot</i></p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
         </div>
-          <p><i>Click and drag ingredients to pot</i></p>
+
+        <div class="cell small-6">
+          <fieldset> 
+            <div id="pot-container">
+              <p><strong>Added to Pot!</strong></p>
+            </div>
+          </fieldset>
+        </div>
       </div>
-      <div id="pot-container">
-        <p>Hi!</p>
-      </div>
-    </div>
+    
     <div class="tabs-panel" id="cuisine">Cuisine</div>
     <div class="tabs-panel" id="diet">
       <div class="grid-x">
