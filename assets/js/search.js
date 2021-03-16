@@ -3,12 +3,17 @@ $(document).foundation();
 
 var url = " https://api.spoonacular.com/recipes/findByIngredients";
 var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
-
 var tabNavigationEl = $(".tab-navigation-container");
 var currentTab = $("#search-criteria").children(".is-active").text();
 var previousBtn = $("#previous-btn");
 var nextBtn = $("#next-btn");
 var recipeSearchBtn = $("#recipe-search-btn");
+var searchCriteria = {
+  ingredients: [],
+  cuisines: [],
+  diet: [],
+  allergies: []
+}
 
 // Search for Recipe - This will need to move to recipie_list.js later
 $(document).ready(function () {
@@ -84,7 +89,6 @@ interact('#pot-container').dropzone({
   overlap: 0.75,
 
   // listen for drop related events:
-
   ondropactivate: function (event) {
     // add active dropzone feedback
     event.target.classList.add('drop-active')
@@ -180,6 +184,28 @@ $("#search-criteria").on('change.zf.tabs', function () {
   buttonStatuses();
 });
 
+//Collect Search Criteria
+$('#recipe-search-btn').on("click", function (e) {
+  e.preventDefault();
+  var cardsInPot = $(".new-location").children('.ingredient-card');
+  cardsInPot.each(function (index) {
+    searchCriteria.ingredients.push($(cardsInPot[index]).children('.card-section').children().text());
+  });
+  $.each($("input[name='cuisine']:checked"), function () {
+    searchCriteria.cuisines.push($(this).next().text());
+  });
+  $.each($("input[name='diet']:checked"), function () {
+    searchCriteria.diet.push($(this).next().text());
+  });
+  $.each($("input[name='allergies']:checked"), function () {
+    searchCriteria.allergies.push($(this).next().text());
+  });
+
+  localStorage.setItem("searchCriteria", JSON.stringify(searchCriteria));
+
+  console.log(searchCriteria);
+
+});
+
 //set button status
 buttonStatuses();
-
