@@ -54,13 +54,7 @@ interact('.ingredient-card')
 
       // call this function on every dragend event
       end(event) {
-        var textEl = event.target.querySelector('p')
 
-        textEl && (textEl.textContent =
-          'moved a distance of ' +
-          (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-            Math.pow(event.pageY - event.y0, 2) | 0))
-            .toFixed(2) + 'px')
       }
     }
   })
@@ -109,15 +103,21 @@ interact('#pot-container').dropzone({
   ondrop: function (event) {
     // clone current card to new location and remove current card
     var originalCard = $(event.relatedTarget);
-    originalCard.clone().appendTo(".new-location");
+    var cardInPot = originalCard.clone().appendTo(".new-location");
     originalCard.remove();
 
     // clear out style and draggable from cloned cards
-    var cardsInPot = $(".new-location").children(".draggable");
-    $(cardsInPot[0]).attr("class", "card ingredient-card small-3");
-    $(cardsInPot[0]).attr("style", "");
-    $(cardsInPot[0]).attr("data-x", "");
-    $(cardsInPot[0]).attr("data-y", "");
+    // var cardsInPot = $(".new-location").children(".ingredient-card");
+    cardInPot.addClass('added-ingredient-card');
+    cardInPot.removeClass('ingredient-card');
+    cardInPot.removeClass('draggable');
+    cardInPot.removeAttr("style");
+    cardInPot.removeAttr("data-x");
+    cardInPot.removeAttr("data-y");
+    cardInPot.attr("data-closable", "");
+
+    // Add remove from pot button to card
+    cardInPot.prepend('<button class=\"close-button\" aria-label=\"Close alert\" id="remove-ingredient-button" type=\"button\" data-close><span aria-hidden=\"true\">&times;</span></button>');
   },
   ondropdeactivate: function (event) {
     // remove active dropzone feedback
@@ -125,6 +125,21 @@ interact('#pot-container').dropzone({
     event.target.classList.remove('drop-target')
   }
 })
+
+// Add removed card back to search container
+$('#pot-container').on("click", '#remove-ingredient-button', function (e) {
+  e.preventDefault();
+  var originalCard = $(this).parent();
+  var reinstalledCard = originalCard.clone().appendTo(".search-result-container");
+  originalCard.remove();
+
+  reinstalledCard.removeClass('added-ingredient-card');
+  reinstalledCard.addClass('ingredient-card');
+  reinstalledCard.removeClass('draggable');
+
+  reinstalledCard.children('#remove-ingredient-button').remove();
+});
+
 
 // Button Statuses
 function buttonStatuses() {
