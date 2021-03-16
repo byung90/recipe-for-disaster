@@ -17,3 +17,8 @@
   touch-action: none;
   user-select: none;
 }
+
+.tab-navigation-container {
+  margin-top: 20px;
+  text-align: center;
+}
