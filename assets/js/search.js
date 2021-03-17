@@ -22,6 +22,7 @@ var loaclSearchedRecipes = [];
 // Autocomplete Ingredient Search
 $("#ingredient-search-button").on("click", function (e) {
   e.preventDefault();
+  removeLeftOverIngredients();
   let ingredientSearchValue = $('#ingredientSearchInput').val();
   fetch(url + "food/ingredients/autocomplete?apiKey=" + apikey + "&number=5&query=" + ingredientSearchValue)
     .then(function (response) {
@@ -33,6 +34,12 @@ $("#ingredient-search-button").on("click", function (e) {
       displayIngredientCards(data);
     })
 })
+
+// Remove unused ingredient cards
+function removeLeftOverIngredients() {
+  var searchResultContainerEl = $('.search-result-container');
+  searchResultContainerEl.children().remove();
+}
 
 // Display Ingredients into Ingredient Card
 function displayIngredientCards(listOfIngredients) {
@@ -52,7 +59,6 @@ function displayIngredientCards(listOfIngredients) {
         $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("alt", altTitle);
       });
   })
-
 }
 
 // Get Current Tab
