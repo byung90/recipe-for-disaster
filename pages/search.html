@@ -43,30 +43,24 @@
 
   <div class="tabs-content" data-tabs-content="search-criteria">
     <div class="tabs-panel is-active" id="ingredients">
-      <button id="ingredient-search-button">Search</button>
-    <div class="input-group">
-        <input type="text" class="form-control" id="ingSearchInput" placeholder="Enter an Ingredient">
-        <div class="input-group-button">
-          <input type="submit" class="button" value="Submit">
-        </div>
-        </div>
-          <p><i>Click and drag ingredients to pot</i></p>
-        </div>
-      </div>
       <div class="grid-x">
         <div id="search-container" class="cell small-6">
+          <div class="input-group search-group">
+            <input type="search" class="form-control" id="ingredientSearchInput" placeholder="Enter an Ingredient">
+            <button type="submit" id="ingredient-search-button" class="button">Search</button>
+          </div>
+          <p><i>Click and drag ingredients to pot</i></p>
           <div class="grid-x search-result-container">
 
           </div>
         </div>
         <div id="pot-container" class="cell small-6 pot-dropzone">
-           <p><strong>Added to Pot!</strong></p>
+          <p class="pot-title"><strong>Added to Pot!</strong></p>
           <div class="grid-x new-location">
 
           </div>
         </div>
       </div>
-
     </div>
     <div class="tabs-panel" id="cuisine">
       <form>
@@ -105,7 +99,8 @@
           <div class="cell small-4">
             <fieldset>
               <p><input id="mediterranean" type="checkbox" name="cuisine"><label
-                  for="mediterranean">Mediterranean</label></p>
+                  for="mediterranean">Mediterranean</label>
+              </p>
               <p><input id="mexican" type="checkbox" name="cuisine"><label for="mexican">Mexican</label></p>
               <p><input id="middleEastern" type="checkbox" name="cuisine"><label for="middleEastern">Middle
                   Eastern</label></p>
@@ -179,7 +174,7 @@
     <a class="button" href="" id="next-btn">Next</a>
     <a class="button" href="" id="recipe-search-btn">Search</a>
   </div>
- 
+
   <!-- Jquery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Jquery UI JS -->
