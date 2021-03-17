@@ -1,16 +1,18 @@
-#container {
-  display: inline-block;
+.image-container{
   position: relative;
-  width: 50%;
+  width: 100%;
+  padding-top: 50%;
+  overflow: hidden;
 }
-#dummy {
-  margin-top: 75%;
-}
-#element {
-  position: absolute;
+
+.recipe-card img {
+  position:  absolute;
   top: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   right: 0;
-  background-color: silver;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+  z-index: 0;
 }

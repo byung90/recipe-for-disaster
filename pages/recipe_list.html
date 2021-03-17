@@ -17,38 +17,56 @@
 </head>
 
 <body>
-  <!-- Refer to Wireframes -->
+  <img id="background-image" />
 
-  <div id="container">
-    <div id="dummy"></div>
-    <div id="element">
-      some text
+  <div class="entire-container">
+    <div class="grid-x">
+      <div class="cell title-container flex-container align-center">
+        <h1>Recipe for Disaster</h1>
+      </div>
     </div>
-  </div>
-  <div>
-    text
-  </div>
-  <!-- Jquery JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Jquery UI JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <!-- Foundation UI JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.core.min.js"
-    integrity="sha512-VjrFGrbntgayKrSj6xLEBUvBI/cokQiLTn3zOsmlX1m3LL0v8aCKCoj/Yu8tVNZBBaGRApcCQJldteGJdCl37g=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.tabs.min.js"
-    integrity="sha512-m+WN3xvaL+QvLl8dSFyCpqBuvrydX3lhn58I3GM/J2vq1oXaKXZbsPjsjPf2k6M47g0aQSSnwQCSCMhQG2Dt3Q=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.imageLoader.min.js"
-    integrity="sha512-x+0pv0lzhXur88J+KzgaLJJQXGZMv8OCX6585m02LWbMZeGz83wXpSTkKqWXc1rW+UVecNelK4tUHh8m0jT5BQ=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.keyboard.min.js"
-    integrity="sha512-ZhcrUdi3wqZH+oLrx9+ukAmXjD1mAYmq6syNRcwT+rU8LcwuG7jkW56z0E718ew4OUKXFObpT5ijkgZ3PqNmzQ=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-    integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-  <!-- Page Specific JS -->
-  <script src="../assets/js/recipe_list.js"></script>
+    <div class="grid-x">
+      <div class="cell enter-container flex-container align-center">
+        <h2>Recipes</h2>
+      </div>
+    </div>
+    <div class="grid-x">
+      <div class="cell small-6">
+        <h3 class="nav_recipies">Recipes</h3>
+      </div>
+      <div class="cell small-6">
+        <h3 class="nav_watch">Watch</h3>
+      </div>
+    </div>
+
+    <div class="grid-x recipe-list-container grid-margin-x">
+    </div>
+
+    <div class="grid-x">
+      <button class="button load-more">Load More</button>
+    </div>
+
+    <!-- Jquery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Jquery UI JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Foundation UI JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.core.min.js"
+      integrity="sha512-VjrFGrbntgayKrSj6xLEBUvBI/cokQiLTn3zOsmlX1m3LL0v8aCKCoj/Yu8tVNZBBaGRApcCQJldteGJdCl37g=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.tabs.min.js"
+      integrity="sha512-m+WN3xvaL+QvLl8dSFyCpqBuvrydX3lhn58I3GM/J2vq1oXaKXZbsPjsjPf2k6M47g0aQSSnwQCSCMhQG2Dt3Q=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.imageLoader.min.js"
+      integrity="sha512-x+0pv0lzhXur88J+KzgaLJJQXGZMv8OCX6585m02LWbMZeGz83wXpSTkKqWXc1rW+UVecNelK4tUHh8m0jT5BQ=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/plugins/foundation.util.keyboard.min.js"
+      integrity="sha512-ZhcrUdi3wqZH+oLrx9+ukAmXjD1mAYmq6syNRcwT+rU8LcwuG7jkW56z0E718ew4OUKXFObpT5ijkgZ3PqNmzQ=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+      integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <!-- Page Specific JS -->
+    <script src="../assets/js/recipe_list.js"></script>
 </body>
 
 </html>

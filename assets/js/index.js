@@ -1,6 +1,6 @@
 var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
 var apiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
-
+var apiOffsetCount = 0;
 // Call a giphy for background
 $(document).ready(function () {
   // Calling giphy search query of "food" and returning only 1 result
@@ -23,3 +23,5 @@ $(document).ready(function () {
       localStorage.setItem("recipeForDisasterLocalImage", JSON.stringify(backgroundObject));
     });
 });
+
+localStorage.setItem("apiOffsetCount", JSON.stringify(apiOffsetCount));
