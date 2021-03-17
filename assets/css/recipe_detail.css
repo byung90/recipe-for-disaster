@@ -1,0 +1,27 @@
+.enter-container{
+  text-align: center;
+}
+
+#recipe-image img{
+  position:inherit;
+  z-index: 0;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+}
+
+.wine-card img {
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+  z-index: 0;
+}

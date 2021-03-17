@@ -19,90 +19,48 @@
 <body>
   <!-- Refer to Wireframes -->
   <!-- Display recipe title, credit, and link to the original recipe page.-->
-  <div class="grid-x grid-padding-x align-center">
-    <div class="grid-margin-x">
-      <h1 class="cell small-12">Recipe for Disaster</h1>
+  <img id="background-image" />
+
+  <div class="entire-container">
+    <div class="grid-x">
+      <div class="cell title-container flex-container align-center">
+        <h1>Recipe for Disaster</h1>
+      </div>
     </div>
-  </div>
-  <hr>
-  <div class="grid-x grid-padding-x align-center">
-    <div class="grid-margin-x">
-      <p class="cell small-12">Search Recipes</p>
+    <div class="grid-x enter-container">
+      <div class="cell flex-container align-center">
+        <h2 id="title">Recipes</h2>
+      </div>
+      <div class="cell flex-container align-center">
+        <p id="credit-and-link">
+          Credit
+          <br>
+          Link
+        </p>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="grid-x grid-padding-x align-center">
-    <div class="grid-margin-x">
-      <h2 class="cell small-12">Recipe Title</h2>
-      <h5 class="cell small-12">Recipe Credit</h5>
-      <h6 class="cell small-12">Click <a target="_blank" href="#"> here </a> for original recipe</h6>
+    <div class="grid-x">
+      <div id="recipe-image" class="cell small-6 float-center">
+        <img>
+      </div>
     </div>
-  </div>
-  <!-- Display image of the recipe like in wireframe.  -->
-  <br />
-  <div class="callout clearfix">
-    <div class="float-center">
-      <a href="#"><img src="http://placehold.jp/800x800.png" class="float-center"></a>
+    <div id="recipe-summary" class="recipe-info">
+      <h2>Summary</h2>
+      <p>lorem</p>
     </div>
-  </div>
-  <br />
-  <div class="callout clearfix">
-    <div class="float-center">
-      <h3>Summary</h3>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto repellat dolorum, excepturi eveniet, quisquam
-        quidem necessitatibus porro libero veniam ducimus non beatae assumenda ut reiciendis numquam ipsam ab
-        perspiciatis. Molestias.</p>
-      <hr>
-      <h3>Instructions</h3>
+    <div id="recipe-instructions" class="recipe-info">
+      <h2>Instructions</h2>
       <ol>
-        <li>Lorem ipsum</li>
-        <li>Lorem ipsum</li>
       </ol>
-      <hr>
-      <h3>Wine Pairing</h3>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto repellat dolorum, excepturi eveniet, quisquam
-        quidem necessitatibus porro libero veniam ducimus non beatae assumenda ut reiciendis numquam ipsam ab
-        perspiciatis. Molestias.</p>
-      <br />
-      <h5>Suggested Wines</h5>
-      <div class="grid-x grid-margin-x">
-        <div class="cell card medium-3">
-          <img src="http://placehold.jp/150x150.png">
-          <div class="card-section">
-            <p>This row of cards is embedded in an X-Y Block Grid.</p>
-          </div>
-        </div>
-        <div class="cell card medium-3">
-          <img src="http://placehold.jp/150x150.png">
-          <div class="card-section">
-            <p>This row of cards is embedded in an X-Y Block Grid.</p>
-          </div>
-        </div>
-        <div class="cell card medium-3">
-          <img src="http://placehold.jp/150x150.png">
-          <div class="card-section">
-            <p>This row of cards is embedded in an X-Y Block Grid.</p>
-          </div>
-        </div>
-        <div class="cell card medium-3">
-          <img src="http://placehold.jp/150x150.png">
-          <div class="card-section">
-            <p>This row of cards is embedded in an X-Y Block Grid.</p>
-          </div>
-        </div>
+    </div>
+    <div id="wine-pairing" class="recipe-info">
+      <h2>Wine Pairing</h2>
+      <p>lorem</p>
+      <div class="grid-x" id="wine-grid">
+
       </div>
     </div>
   </div>
-
-
-
-
-  <!-- Create wine cards with: thumbnail image, and wine name -->
-
-
-
-
-
   <!-- Jquery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Jquery UI JS -->
