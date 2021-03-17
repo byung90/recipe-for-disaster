@@ -5,6 +5,19 @@
 #search-container{
   border-right: 1px solid #eaeaea;
   flex-wrap: wrap;
+  padding-right: 15px;
+}
+
+#ingredient-search-button {
+  height: 2.4375rem;
+}
+
+.search-group{
+  margin-bottom: 0;
+}
+
+.pot-title {
+  height: 80px;
 }
 
 #pot-container{

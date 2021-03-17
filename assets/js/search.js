@@ -2,7 +2,8 @@
 $(document).foundation();
 
 var url = " https://api.spoonacular.com/";
-var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
+// var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
+var apikey = "7eba54b90be749259b03f159287e801b";
 var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
 var giphyApiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
 var tabNavigationEl = $(".tab-navigation-container");
@@ -10,29 +11,19 @@ var currentTab = $("#search-criteria").children(".is-active").text();
 var previousBtn = $("#previous-btn");
 var nextBtn = $("#next-btn");
 var recipeSearchBtn = $("#recipe-search-btn");
-var searchCriteria = {
+var localSearchCriteria = {
   ingredients: [],
   cuisines: [],
   diet: [],
   allergies: []
-}
-
-// Search for Recipe - This will need to move to recipie_list.js later
-$(document).ready(function () {
-  fetch(url + "recipes/findByIngredients?ingredients=apples,flour&apiKey=" + apikey)
-    .then(function (response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    })
-});
+};
+var loaclSearchedRecipes = [];
 
 // Autocomplete Ingredient Search
 $("#ingredient-search-button").on("click", function (e) {
   e.preventDefault();
-  fetch(url + "food/ingredients/autocomplete?apiKey=" + apikey + "&number=5&query=appl")
+  let ingredientSearchValue = $('#ingredientSearchInput').val();
+  fetch(url + "food/ingredients/autocomplete?apiKey=" + apikey + "&number=5&query=" + ingredientSearchValue)
     .then(function (response) {
       console.log(response);
       return response.json();
@@ -63,8 +54,6 @@ function displayIngredientCards(listOfIngredients) {
   })
 
 }
-
-
 
 // Get Current Tab
 function getCurrentTab() {
@@ -241,25 +230,53 @@ $("#search-criteria").on('change.zf.tabs', function () {
 //Collect Search Criteria
 $('#recipe-search-btn').on("click", function (e) {
   e.preventDefault();
-  var cardsInPot = $(".new-location").children('.ingredient-card');
+  var cardsInPot = $(".new-location").children('.added-ingredient-card');
   cardsInPot.each(function (index) {
-    searchCriteria.ingredients.push($(cardsInPot[index]).children('.card-section').children().text());
+    localSearchCriteria.ingredients.push($(cardsInPot[index]).children('.card-section').children().text());
   });
   $.each($("input[name='cuisine']:checked"), function () {
-    searchCriteria.cuisines.push($(this).next().text());
+    localSearchCriteria.cuisines.push($(this).next().text());
   });
   $.each($("input[name='diet']:checked"), function () {
-    searchCriteria.diet.push($(this).next().text());
+    localSearchCriteria.diet.push($(this).next().text());
   });
   $.each($("input[name='allergies']:checked"), function () {
-    searchCriteria.allergies.push($(this).next().text());
+    localSearchCriteria.allergies.push($(this).next().text());
   });
 
-  localStorage.setItem("searchCriteria", JSON.stringify(searchCriteria));
+  localStorage.setItem("searchCriteria", JSON.stringify(localSearchCriteria));
 
-  console.log(searchCriteria);
-
+  console.log(localSearchCriteria);
+  searchRecipe(localSearchCriteria);
 });
+
+//Search for ingredients and store to local data
+function searchRecipe(searchCriterias) {
+  let ingredients = searchCriterias.ingredients.toString();
+  let cuisines = searchCriterias.cuisines.toString();
+  let diet = searchCriterias.diet.toString();
+  let allergies = searchCriterias.allergies.toString();
+
+  fetch(url + "recipes/complexSearch?apiKey=" + apikey + "&cuisine=" + cuisines + "&diet=" + diet + "&intolerances=" + allergies + "&includeIngreients=" + ingredients)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      $(data.results).each(function (index) {
+        let recipe = {
+          id: "",
+          title: "",
+          image: ""
+        };
+        recipe.id = data.results[index].id;
+        recipe.title = data.results[index].title;
+        recipe.image = data.results[index].image;
+        loaclSearchedRecipes.push(recipe);
+      });
+      localStorage.setItem("searchedRecipies", JSON.stringify(loaclSearchedRecipes));
+    })
+}
 
 //set button status
 buttonStatuses();
