@@ -44,6 +44,11 @@
   object-fit: cover;
   width: inherit;
   height: inherit;
+  z-index: 0;
+}
+
+.ingredient-card .card-section p {
+  text-transform: capitalize;
 }
 
 .tab-navigation-container {

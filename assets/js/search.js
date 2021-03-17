@@ -18,6 +18,7 @@ var localSearchCriteria = {
   allergies: []
 };
 var loaclSearchedRecipes = [];
+let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLocalImage'));
 
 // Autocomplete Ingredient Search
 $("#ingredient-search-button").on("click", function (e) {
@@ -283,6 +284,10 @@ function searchRecipe(searchCriterias) {
       localStorage.setItem("searchedRecipies", JSON.stringify(loaclSearchedRecipes));
     })
 }
+
+// Set background image
+$("#background-image").attr("src", backgroundImageObject.image);
+$("#background-image").attr("alt", backgroundImageObject.alt);
 
 //set button status
 buttonStatuses();
