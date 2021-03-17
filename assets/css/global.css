@@ -1,3 +1,21 @@
+/* background image */
+body img {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.entire-container {
+  padding: 15px;
+  background-color: white;
+  width: calc(100% - 30px);
+  height: calc(100vh - 30px);
+  margin: auto;
+  position: relative;
+  top: 15px;
+}
+
 .title-container {
   border-bottom: 1px solid #eaeaea;
 }

@@ -15,5 +15,11 @@ $(document).ready(function () {
       let altTitle = data.data[0].title;
       $("#background-image").attr("src", backgroundImage);
       $("#background-image").attr("alt", altTitle);
+
+      let backgroundObject = {
+        image: backgroundImage,
+        alt: altTitle
+      }
+      localStorage.setItem("recipeForDisasterLocalImage", JSON.stringify(backgroundObject));
     });
 });
