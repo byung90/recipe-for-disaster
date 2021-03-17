@@ -17,7 +17,7 @@ var localSearchCriteria = {
   diet: [],
   allergies: []
 };
-var loaclSearchedRecipes = [];
+var localSearchedRecipes = [];
 let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLocalImage'));
 
 // Autocomplete Ingredient Search
@@ -257,14 +257,14 @@ $('#recipe-search-btn').on("click", function (e) {
   searchRecipe(localSearchCriteria);
 });
 
-//Search for ingredients and store to local data
+//Search for recipe and store to local data
 function searchRecipe(searchCriterias) {
   let ingredients = searchCriterias.ingredients.toString();
   let cuisines = searchCriterias.cuisines.toString();
   let diet = searchCriterias.diet.toString();
   let allergies = searchCriterias.allergies.toString();
 
-  fetch(url + "recipes/complexSearch?apiKey=" + apikey + "&cuisine=" + cuisines + "&diet=" + diet + "&intolerances=" + allergies + "&includeIngreients=" + ingredients)
+  fetch(url + "recipes/complexSearch?apiKey=" + apikey + "&cuisine=" + cuisines + "&diet=" + diet + "&intolerances=" + allergies + "&includeIngreients=" + ingredients + "&includeIngreients=10&sort=popularity&sortDirection=asc&minFat=0&minProtein=0&minCalories=0&instructionsRequired=true")
     .then(function (response) {
       return response.json();
     })
@@ -274,14 +274,24 @@ function searchRecipe(searchCriterias) {
         let recipe = {
           id: "",
           title: "",
-          image: ""
+          image: "",
+          fat: "",
+          protein: "",
+          calories: ""
         };
         recipe.id = data.results[index].id;
         recipe.title = data.results[index].title;
         recipe.image = data.results[index].image;
-        loaclSearchedRecipes.push(recipe);
+        recipe.calories = data.results[index].nutrition.nutrients[0].amount +
+          data.results[index].nutrition.nutrients[0].unit;
+        recipe.protein = data.results[index].nutrition.nutrients[1].amount +
+          data.results[index].nutrition.nutrients[1].unit;
+        recipe.fat = data.results[index].nutrition.nutrients[2].amount +
+          data.results[index].nutrition.nutrients[2].unit;
+        localSearchedRecipes.push(recipe);
       });
-      localStorage.setItem("searchedRecipies", JSON.stringify(loaclSearchedRecipes));
+      localStorage.setItem("searchedRecipies", JSON.stringify(localSearchedRecipes));
+      window.location.replace('./recipe_list.html');
     })
 }
 

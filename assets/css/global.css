@@ -2,7 +2,7 @@
 body img {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: -1;
 }
 
@@ -10,10 +10,9 @@ body img {
   padding: 15px;
   background-color: white;
   width: calc(100% - 30px);
-  height: calc(100vh - 30px);
+  height: calc(100% - 30px);
   margin: auto;
   position: relative;
-  top: 15px;
 }
 
 .title-container {
