@@ -7,8 +7,6 @@ let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLo
 let recipeList = JSON.parse(localStorage.getItem('searchedRecipies'));
 let searchCriteria = JSON.parse(localStorage.getItem('searchCriteria'));
 
-console.log(recipeList);
-
 // Display recipe cards function
 function displayRecipeCards(recipeList) {
   let recipeListContainerEl = $(".recipe-list-container");

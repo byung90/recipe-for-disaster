@@ -1,13 +1,14 @@
-var url = " https://api.spoonacular.com/";
+var spoonacularUrl = " https://api.spoonacular.com/";
 // var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
-var apikey = "7eba54b90be749259b03f159287e801b";
+var spoonacularApiKey = "7eba54b90be749259b03f159287e801b";
 var queryString = location.search.substring(1);
 let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLocalImage'));
-let recipeList = JSON.parse(localStorage.getItem('searchedRecipies'));
-let searchCriteria = JSON.parse(localStorage.getItem('searchCriteria'));
+var youtubeApiKey = "AIzaSyCxei-rMDsIELyAVAQtGE1bDmEFUuW5KuQ";
+var youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
+var videoPlayerEl = $("#videoPlayer");
 
 // Call Recipe Detail API
-fetch(url + 'recipes/' + queryString + '/information?apiKey=' + apikey)
+fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoonacularApiKey)
   .then(function (response) {
     console.log(response);
     return response.json();
@@ -52,9 +53,27 @@ fetch(url + 'recipes/' + queryString + '/information?apiKey=' + apikey)
       $('#wine-grid').remove();
     }
 
+    searchVideo(data.title);
     // Set background image
     $("#background-image").attr("src", backgroundImageObject.image);
     $("#background-image").attr("alt", backgroundImageObject.alt);
     $("#background-image").attr("style", 'height:' + $("body").height() + 'px');
   })
 
+//Search Videos from Youtube
+function searchVideo(recipe) {
+  fetch(youtubeApiUrl + "?key=" + youtubeApiKey + "&part=snippet&q=" + recipe + "&order=viewCount&type=video&maxResults=1")
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      console.log(data);
+      video = {
+        channel: data.items[0].snippet.channelTitle,
+        id: data.items[0].id.videoId,
+        thumbnail: data.items[0].snippet.thumbnails.high.url,
+        title: data.items[0].snippet.title
+      }
+      videoPlayerEl.attr('src', 'https://www.youtube.com/embed/' + video.id);
+    })
+}
