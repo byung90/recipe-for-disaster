@@ -1,22 +1,17 @@
 /* background image */
-body img {
-  position: absolute;
-  width: 100vw;
-  height: 100%;
-  z-index: -1;
+body {
+  background-repeat: repeat;
 }
 
 .entire-container {
   padding: 15px;
   background-color: white;
-  width: calc(100% - 30px);
-  height: calc(100% - 30px);
+  width: 1320px;
   margin: auto;
   position: relative;
-
 }
 
-/* Content */
+/* Header */
 .title-container {
   border-bottom: 1px solid #eaeaea;
 }
@@ -24,10 +19,21 @@ body img {
 .title-container h1 {
   color: #862a27;
   font-weight: bold;
-  font-family: 'Nanum Gothic', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.enter-container {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .enter-container h2{
   color: #f1bb4e;
-  font-family: 'Nanum Gothic', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.button {
+  font-family: 'Poppins', sans-serif !important;
 }

@@ -1,6 +1,5 @@
 var url = " https://api.spoonacular.com/";
-// var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
-var apikey = "7eba54b90be749259b03f159287e801b";
+var apikey = "de4d428423dc4d72926835be0dc5a8e5";
 var apiOffsetCount = JSON.parse(localStorage.getItem('apiOffsetCount'));
 
 let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLocalImage'));
@@ -11,11 +10,20 @@ let searchCriteria = JSON.parse(localStorage.getItem('searchCriteria'));
 function displayRecipeCards(recipeList) {
   let recipeListContainerEl = $(".recipe-list-container");
 
+  if (recipeListContainerEl.children('.grid-x').last().children('.fill-card').length > 0) {
+    recipeListContainerEl.children('.grid-x').last().children('.fill-card').remove();
+  }
+
   $(recipeList).each(function (index) {
-    if (index % 4 === 0) {
+
+
+    if (recipeListContainerEl.children('.grid-x').last().children('.recipe-card').length === 4) {
       recipeListContainerEl.append('<div class="grid-x align-justify" style="width: 100%"></div>')
     }
-    recipeListContainerEl.children('.grid-x').last().append('<div class="cell card recipe-card"><a href="./recipe_detail.html?' + recipeList[index].id + '"><div class="image-container"><img src="' + recipeList[index].image + '" alt="' + recipeList[index].title + '"></div><div class="card-section recipe-info"><h3>' + recipeList[index].title + '</h3><p>' + recipeList[index].calories + '</p><p>' + recipeList[index].protein + '</p><p>' + recipeList[index].fat + '</p></div></a></div>');
+    else if (recipeListContainerEl.children('.grid-x').last().children('.fill-card').length > 0) {
+      recipeListContainerEl.children('.grid-x').last().children('.fill-card').remove();
+    }
+    recipeListContainerEl.children('.grid-x').last().append('<div class="cell card recipe-card"><a href="./recipe_detail.html?' + recipeList[index].id + '"><div class="image-container"><img src="' + recipeList[index].image + '" alt="' + recipeList[index].title + '"></div><div class="card-section recipe-info"><h3>' + recipeList[index].title + '</h3><p>Calories: ' + recipeList[index].calories + '</p><p>Protein: ' + recipeList[index].protein + '</p><p>Fat: ' + recipeList[index].fat + '</p></div></a></div>');
   });
 
   if (recipeListContainerEl.children('.grid-x').last().children().length !== 4) {
@@ -26,6 +34,8 @@ function displayRecipeCards(recipeList) {
       recipeListContainerEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
     }
   }
+
+  $('.entire-container').height(recipeListContainerEl.height() + 226);
 }
 
 //Search for recipe and store to local data
@@ -74,11 +84,15 @@ function searchRecipe(searchCriterias) {
 displayRecipeCards(recipeList);
 
 // Set background image
-$("#background-image").attr("src", backgroundImageObject.image);
-$("#background-image").attr("alt", backgroundImageObject.alt);
-$("#background-image").attr("style", 'height:' + $("body").height() + 'px');
+$('body').attr('style', 'background-image:url(' + backgroundImageObject.image + ')');
 
 $('.load-more').on("click", function (e) {
   e.preventDefault();
   searchRecipe(searchCriteria);
 });
+
+
+if ($('.entire-container').height() < $(window).height()) {
+  $('.entire-container').height($(window).height());
+  console.log($('.entire-container').height());
+}
