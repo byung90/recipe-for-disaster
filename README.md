@@ -18,7 +18,7 @@ This application was designed to help users find recipes to cook based upon ingr
 **Method**
 
 <br>
-Once the user enters their available ingredients, as well as their dietary restrictions, desired cuisine type and let's the app know if they have any allergy concerns, this app will utilize several APIs,, including Spoonacular, YouTube, and Giphy, to search for possible recipes as well as provide photos of the food and possible instructional how-to cooking videos.
+Once the user enters their available ingredients, as well as their dietary restrictions, desired cuisine type and let's the app know if they have any allergy concerns, this app will utilize several APIs, including Spoonacular, YouTube, and Giphy, to search for possible recipes as well as provide photos of the food and possible instructional how-to cooking videos.
 <br>
 
 <br>
@@ -30,6 +30,8 @@ Once the user enters their available ingredients, as well as their dietary restr
 [Spoonacular](https://spoonacular.com/) - The recipe API<br>
 [YouTube](https://www.youtube.com/) - The video API<br>
 [Giphy](https://giphy.com/) - The GIF rendering API<br>
+[Foundation Framework](https://get.foundation/) - The most advanced responsive front-end framework.<br>
+[Interact.JS](https://interactjs.io/) - JavaScript drag and drop, resizing, and multi-touch gestures for modern browsers.
 
 <br>
 
