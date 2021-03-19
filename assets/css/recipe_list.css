@@ -3,11 +3,12 @@
   flex-grow: 0;
   -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: #ffeba7 ;
 }
 
 .recipe-list-container .fill-card {
   border: 0;
-  background-color: white;
+  background-color: #ffeba7;
 }
 
 .image-container{
@@ -27,4 +28,24 @@
   width: inherit;
   height: inherit;
   z-index: 0;
+}
+
+.entire-container {
+  background-color:
+  #64737b
+}
+
+.title-container h1 {
+  color: #862a27;
+  font-weight: bold;
+  font-family: 'Nanum Gothic', sans-serif !important;
+}
+
+.enter-container h2{
+  color: #f1bb4e;
+  font-family: 'Times New Roman', sans-serif !important;
+}
+
+.title-container {
+  border-bottom: 1px solid #f1bb4e;
 }
