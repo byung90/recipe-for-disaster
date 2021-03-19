@@ -12,8 +12,20 @@ function displayRecipeCards(recipeList) {
   let recipeListContainerEl = $(".recipe-list-container");
 
   $(recipeList).each(function (index) {
-    recipeListContainerEl.append('<div class="cell card recipe-card small-3"><a href="./recipe_detail.html?' + recipeList[index].id + '"><div class="image-container"><img src="' + recipeList[index].image + '" alt="' + recipeList[index].title + '"></div><div class="card-section recipe-info"><h3>' + recipeList[index].title + '</h3><p>' + recipeList[index].calories + '</p><p>' + recipeList[index].protein + '</p><p>' + recipeList[index].fat + '</p></div></a></div>');
+    if (index % 4 === 0) {
+      recipeListContainerEl.append('<div class="grid-x align-justify" style="width: 100%"></div>')
+    }
+    recipeListContainerEl.children('.grid-x').last().append('<div class="cell card recipe-card"><a href="./recipe_detail.html?' + recipeList[index].id + '"><div class="image-container"><img src="' + recipeList[index].image + '" alt="' + recipeList[index].title + '"></div><div class="card-section recipe-info"><h3>' + recipeList[index].title + '</h3><p>' + recipeList[index].calories + '</p><p>' + recipeList[index].protein + '</p><p>' + recipeList[index].fat + '</p></div></a></div>');
   });
+
+  if (recipeListContainerEl.children('.grid-x').last().children().length !== 4) {
+    let gridLength = recipeListContainerEl.children('.grid-x').last().children().length;
+    let gapCount = 4 - gridLength;
+    for (let i = 0; i < gapCount; i++) {
+      console.log(i);
+      recipeListContainerEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
+    }
+  }
 }
 
 //Search for recipe and store to local data

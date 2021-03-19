@@ -46,7 +46,7 @@ fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoon
         loopLength = 4;
       }
       for (let i = 0; i < loopLength; i++) {
-        $('#wine-grid').append('<div class="cell card wine-card small-3"><div class="image-container"><img src="' + data.winePairing.productMatches[i].imageUrl + '"></div><div class="card-section"><p>' + data.winePairing.productMatches[i].title + '</p></div></div>')
+        $('#wine-grid').append('<div class="cell card wine-card"><div class="image-container"><img src="' + data.winePairing.productMatches[i].imageUrl + '"></div><div class="card-section"><p>' + data.winePairing.productMatches[i].title + '</p></div></div>')
       }
     }
     else {
