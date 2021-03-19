@@ -291,7 +291,7 @@ function searchRecipe(searchCriterias) {
         localSearchedRecipes.push(recipe);
       });
       localStorage.setItem("searchedRecipies", JSON.stringify(localSearchedRecipes));
-      window.location.replace('./recipe_list.html');
+      window.location = './recipe_list.html';
     })
 }
 

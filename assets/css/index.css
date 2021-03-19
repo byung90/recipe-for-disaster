@@ -22,3 +22,7 @@ h1 {
   border-radius: 15px;
   color: black;
 }
+
+.title-container {
+  border-bottom: none;
+}

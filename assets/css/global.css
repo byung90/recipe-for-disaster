@@ -16,6 +16,18 @@ body img {
 
 }
 
+/* Content */
 .title-container {
   border-bottom: 1px solid #eaeaea;
+}
+
+.title-container h1 {
+  color: #862a27;
+  font-weight: bold;
+  font-family: 'Nanum Gothic', sans-serif !important;
+}
+
+.enter-container h2{
+  color: #f1bb4e;
+  font-family: 'Nanum Gothic', sans-serif !important;
 }

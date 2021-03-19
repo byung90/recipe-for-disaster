@@ -1,8 +1,8 @@
 .recipe-list-container .recipe-card, .recipe-list-container .fill-card {
   width: 400px;
   flex-grow: 0;
-  -webkit-box-shadow: 2px 3px 11px -2px #000000; 
-  box-shadow: 2px 3px 11px -2px #000000;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .recipe-list-container .fill-card {
