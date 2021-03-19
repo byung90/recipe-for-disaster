@@ -7,6 +7,34 @@
   z-index: 0;
 }
 
+#recipe-summary h2 {
+  font-family:cursive;
+  font-size: 45px;
+  font-weight: bold;
+  color: #e47848
+}
+
+#recipe-instructions h2 {
+  font-family:cursive;
+  font-size: 45px;
+  font-weight: bold;
+  color: #e47848
+}
+
+#wine-pairing h2 {
+  font-family:cursive;
+  font-size: 45px;
+  font-weight: bold;
+  color: #e47848
+}
+
+#video-player h2 {
+  font-family:cursive;
+  font-size: 45px;
+  font-weight: bold;
+  color: #e47848
+}
+
 #wine-grid .wine-card, #wine-grid .wine-card {
   width: 400px;
   flex-grow: 0;

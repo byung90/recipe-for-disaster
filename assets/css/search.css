@@ -55,3 +55,11 @@
   margin-top: 20px;
   text-align: center;
 }
+/* #ingredients-label{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+} */
+.tabs .tabs-title a{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+}

@@ -1,6 +1,6 @@
 <h1 style="text-align:center;">RECIPE FOR DISASTER</h1>
 
-![Main Page Clip](.\assets\images\mainpage.jpg)
+![Main Page Clip](./assets/images/mainpage.jpg)
 
 <br>
 
