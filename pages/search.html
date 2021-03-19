@@ -13,7 +13,9 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <!-- Our CSS -->
   <link rel="stylesheet" href="../assets/css/global.css">
@@ -21,8 +23,6 @@
 </head>
 
 <body>
-  <!-- <img id="background-image" /> -->
-
   <div class="entire-container">
     <!-- Header & Title Goes Here: Ticket #3 -->
     <div class="grid-x">
@@ -39,7 +39,7 @@
 
 
     <!-- Make Tabs Here: Ticket #4 -->
-    <ul class="tabs" data-tabs id="search-criteria" data-deep-link="true">
+    <ul class="tabs flex-container align-center" data-tabs id="search-criteria" data-deep-link="true">
       <li class="tabs-title is-active"><a href="#ingredients" aria-selected="true">Ingredients</a></li>
       <li class="tabs-title"><a href="#cuisine">Cuisine</a></li>
       <li class="tabs-title"><a href="#diet">Diet</a></li>
@@ -51,16 +51,20 @@
         <div class="grid-x">
           <div id="search-container" class="cell small-6">
             <div class="input-group search-group">
-              <input type="search" class="form-control" id="ingredientSearchInput" placeholder="Enter an Ingredient">
-              <button type="submit" id="ingredient-search-button" class="button">Search</button>
+              <form id="ingredientSearch" class="flex-container">
+                <input type="search" class="form-control flex-child-auto" id="ingredientSearchInput"
+                  placeholder="Enter an Ingredient">
+                <button type="submit" id="ingredient-search-button" class="button">Search</button>
+              </form>
             </div>
-            <p><i>Click and drag ingredients to pot</i></p>
+            <p class="search-instructions">Search for ingredients</p>
+            <p class="click-and-drag-instructions">Click and drag ingredient into your pot! </p>
             <div class="grid-x search-result-container">
 
             </div>
           </div>
           <div id="pot-container" class="cell small-6 pot-dropzone">
-            <p class="pot-title"><strong>Added to Pot!</strong></p>
+            <p class="pot-title">Your Pot!</p>
             <div class="grid-x new-location">
               <div class="grid-x align-justify" style="width: 100%"></div>
             </div>
@@ -137,7 +141,8 @@
             </div>
             <div class="cell small-6">
               <fieldset>
-                <p><input id="pescetarian" type="checkbox" name="diet"><label for="pescetarian">Pescetarian</label></p>
+                <p><input id="pescetarian" type="checkbox" name="diet"><label for="pescetarian">Pescetarian</label>
+                </p>
                 <p><input id="primal" type="checkbox" name="diet"><label for="primal">Primal</label></p>
                 <p><input id="vegan" type="checkbox" name="diet"><label for="vegan">Vegan</label></p>
                 <p><input id="vegetarian" type="checkbox" name="diet"><label for="vegetarian">Vegetarian</label></p>

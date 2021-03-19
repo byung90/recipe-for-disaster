@@ -13,8 +13,7 @@ $(document).ready(function () {
       console.log(data);
       let backgroundImage = data.data[0].images.original.url;
       let altTitle = data.data[0].title;
-      $("#background-image").attr("src", backgroundImage);
-      $("#background-image").attr("alt", altTitle);
+      $('body').attr('style', 'background-image:url(' + backgroundImage + ')');
 
       let backgroundObject = {
         image: backgroundImage,

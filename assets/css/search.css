@@ -1,7 +1,28 @@
+/* Navigation */
+.tab-navigation-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Tabs */
+.tabs .tabs-title a{
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 16px;
+}
+
+.tabs .tabs-title a:focus{
+  outline: none;
+}
+
+/* Search and Pot Container */
 #search-container{
   border-right: 1px solid #eaeaea;
   flex-wrap: wrap;
   padding-right: 15px;
+}
+
+#ingredientSearch {
+  width: 100%;
 }
 
 #ingredient-search-button {
@@ -12,8 +33,16 @@
   margin-bottom: 0;
 }
 
+.search-instructions, .click-and-drag-instructions {
+  font-family: 'Poppins', sans-serif !important;
+  font-style: italic;
+}
+
 .pot-title {
   height: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 #pot-container{
@@ -26,18 +55,22 @@
   touch-action: none;
   user-select: none;
   position: relative;
-  width: 300px;
+  width: 250px;
+  flex-grow: 0;
+  z-index: 1;
 }
 
-.ingredient-card {
- z-index: 2;
+.added-ingredient-card{
+  z-index: 0;
 }
 
 .fill-card{
   position: relative;
-  width: 300px;
+  width: 250px;
   border: none;
   background-color: none;
+  flex-grow: 0;
+  z-index: -1;
 }
 
 .image-container{
@@ -56,22 +89,9 @@
   object-fit: cover;
   width: inherit;
   height: inherit;
-  z-index: 0;
 }
 
 .ingredient-card .card-section p {
   text-transform: capitalize;
 }
 
-.tab-navigation-container {
-  margin-top: 20px;
-  text-align: center;
-}
-/* #ingredients-label{
-  font-family: 'Fira Sans', sans-serif;
-  font-size: 20px;
-} */
-.tabs .tabs-title a{
-  font-family: 'Fira Sans', sans-serif;
-  font-size: 20px;
-}

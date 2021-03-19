@@ -1,42 +1,81 @@
+/* Header */
 .enter-container{
   text-align: center;
 }
 
+.breadcrumb-container {
+  margin: 0;
+  line-height: 1;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 10px;
+}
+
+.breadcrumb-container p {
+  margin: 0;
+  margin-top: 3px;
+}
+
+.breadcrumb-container a:active, .breadcrumb-container a:visited {
+  color: #374044;
+}
+
+#credit-and-link{
+  line-height: 1;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 12px;
+}
+
+#recipe-image {
+  width: 100%;
+}
+
 #recipe-image img{
   position:inherit;
-  z-index: 0;
+  text-align: center;
 }
 
-#recipe-summary h2 {
-  font-family:cursive;
-  font-size: 45px;
+/* Recipe Content */
+.recipe-info h2 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 24px;
   font-weight: bold;
-  color: #e47848
+  color: #374044;
+  border-bottom: 1px solid #eaeaea;
+  margin-top: 10px;
 }
 
-#recipe-instructions h2 {
-  font-family:cursive;
-  font-size: 45px;
-  font-weight: bold;
-  color: #e47848
+.ingredient-card, .fill-card {
+  width: 270px;
+  flex-grow: 0;
 }
 
-#wine-pairing h2 {
-  font-family:cursive;
-  font-size: 45px;
-  font-weight: bold;
-  color: #e47848
+.fill-card {
+  border: none;
+  background-color: white;
 }
 
-#video-player h2 {
-  font-family:cursive;
-  font-size: 45px;
+.recipe-info p, .recipe-info ol li {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px;
+  color: #374044;
+}
+
+#recipe-instructions ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+
+#recipe-instructions ol li{
+  counter-increment: my-awesome-counter;
+}
+
+#recipe-instructions ol li::marker  {
+  content: counter(my-awesome-counter) ". ";
   font-weight: bold;
-  color: #e47848
 }
 
 #wine-grid .wine-card, #wine-grid .wine-card {
-  width: 400px;
+  width: 270px;
   flex-grow: 0;
 }
 
@@ -47,7 +86,7 @@
   overflow: hidden;
 }
 
-.wine-card img {
+.wine-card img, .ingredient-card img {
   position:  absolute;
   top: 0;
   left: 0;

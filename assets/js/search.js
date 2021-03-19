@@ -2,8 +2,7 @@
 $(document).foundation();
 
 var url = " https://api.spoonacular.com/";
-// var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
-var apikey = "7eba54b90be749259b03f159287e801b";
+var apikey = "de4d428423dc4d72926835be0dc5a8e5";
 var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
 var giphyApiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
 var tabNavigationEl = $(".tab-navigation-container");
@@ -23,6 +22,16 @@ let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLo
 // Autocomplete Ingredient Search
 $("#ingredient-search-button").on("click", function (e) {
   e.preventDefault();
+  autocompleteIngredientSearch();
+})
+
+$("#ingredientSearch").on("submit", function (e) {
+  e.preventDefault();
+  autocompleteIngredientSearch();
+})
+
+// Autocomplete Ingredient Search Function
+function autocompleteIngredientSearch() {
   removeLeftOverIngredients();
   let ingredientSearchValue = $('#ingredientSearchInput').val();
   fetch(url + "food/ingredients/autocomplete?apiKey=" + apikey + "&number=5&query=" + ingredientSearchValue)
@@ -32,9 +41,12 @@ $("#ingredient-search-button").on("click", function (e) {
     })
     .then(function (data) {
       console.log(data);
+      $('.search-instructions').hide();
+      $('.click-and-drag-instructions').show();
       displayIngredientCards(data);
     })
-})
+}
+
 
 // Remove unused ingredient cards
 function removeLeftOverIngredients() {
@@ -57,9 +69,9 @@ function displayIngredientCards(listOfIngredients) {
       })
       .then(function (data) {
         console.log(data);
-        let backgroundImage = data.data[0].images.original.url;
+        let thumbnailImage = data.data[0].images.original.url;
         let altTitle = data.data[0].title;
-        $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("src", backgroundImage);
+        $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("src", thumbnailImage);
         $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("alt", altTitle);
       });
   })
@@ -367,8 +379,13 @@ function searchRecipe(searchCriterias) {
 }
 
 // Set background image
-$("#background-image").attr("src", backgroundImageObject.image);
-$("#background-image").attr("alt", backgroundImageObject.alt);
+$('body').attr('style', 'background-image:url(' + backgroundImageObject.image + ')');
 
 //set button status
 buttonStatuses();
+$('.click-and-drag-instructions').hide();
+
+if ($('.entire-container').height() < $(window).height()) {
+  $('.entire-container').height($(window).height());
+  console.log($('.entire-container').height());
+}

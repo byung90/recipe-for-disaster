@@ -1,14 +1,15 @@
 var spoonacularUrl = " https://api.spoonacular.com/";
-// var apikey = "54f9d0ffffd344e6907e1cb3683f501c";
-var spoonacularApiKey = "7eba54b90be749259b03f159287e801b";
+var spoonacularApiKey = "de4d428423dc4d72926835be0dc5a8e5";
 var queryString = location.search.substring(1);
 let backgroundImageObject = JSON.parse(localStorage.getItem('recipeForDisasterLocalImage'));
 var youtubeApiKey = "AIzaSyCxei-rMDsIELyAVAQtGE1bDmEFUuW5KuQ";
 var youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
 var videoPlayerEl = $("#videoPlayer");
+var giphyAPIUrl = "https://api.giphy.com/v1/gifs/search";
+var giphyApiKey = "1gDdg77XRTquH6zu7e2ZuCqJwnPqT0De";
 
 // Call Recipe Detail API
-fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoonacularApiKey)
+fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoonacularApiKey + '&includeNutrition=true')
   .then(function (response) {
     console.log(response);
     return response.json();
@@ -24,6 +25,44 @@ fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoon
     //Summary
     $('#recipe-summary').children('p').html(data.summary);
 
+
+    //Ingredients
+    let ingredientsEl = $('#recipe-ingredients');
+    let ingredientList = data.extendedIngredients;
+
+    $(ingredientList).each(function (index) {
+      fetch(giphyAPIUrl + "?api_key=" + giphyApiKey + "&q=" + ingredientList[index].name + "&limit=1")
+        .then(function (response2) {
+          return response2.json();
+        })
+        .then(function (data2) {
+          console.log(data2);
+          if (ingredientsEl.children('.grid-x').last().children('.ingredient-card').length === 4) {
+            ingredientsEl.append('<div class="grid-x align-justify" style="width: 100%"></div>');
+          }
+          else {
+            ingredientsEl.children('.grid-x').last().children('.fill-card').remove();
+          }
+
+          if (data2.data.length > 0) {
+            ingredientsEl.children('.grid-x').last().append('<div class="ingredient-card card"><div class="image-container"><img src="' + data2.data[0].images.original.url + '" alt="' + ingredientList[index].name + '"></div><div class="card-section"><p>' + ingredientList[index].name + '</p></div></div>');
+          }
+          else {
+            ingredientsEl.children('.grid-x').last().append('<div class="ingredient-card card"><div class="image-container"><img src="https://media.giphy.com/media/11gZBGuDnYwdpu/giphy.gif" alt="' + ingredientList[index].name + '"></div><div class="card-section"><p>' + ingredientList[index].name + '</p></div></div>');
+          }
+
+          if (ingredientsEl.children('.grid-x').last().children('.ingredient-card').length !== 4) {
+            let gridLength = ingredientsEl.children('.grid-x').last().children().length;
+            let gapCount = 4 - gridLength;
+            for (let i = 0; i < gapCount; i++) {
+              console.log(i);
+              ingredientsEl.children('.grid-x').last().append('<div class="card fill-card"></div>');
+            }
+          }
+
+        })
+    })
+
     //Instructions
     let instructions = data.instructions;
     let instructionsArray = instructions.split('.');
@@ -38,6 +77,7 @@ fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoon
     //Wine Pairing
     $('#wine-pairing').children('p').text(data.winePairing.pairingText);
     if (data.winePairing.productMatches.length > 0) {
+      console.log(data.winePairing.productMatches.length);
       let loopLength;
       if (data.winePairing.productMatches.length < 4) {
         loopLength = data.winePairing.productMatches.length;
@@ -46,7 +86,12 @@ fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoon
         loopLength = 4;
       }
       for (let i = 0; i < loopLength; i++) {
-        $('#wine-grid').append('<div class="cell card wine-card"><div class="image-container"><img src="' + data.winePairing.productMatches[i].imageUrl + '"></div><div class="card-section"><p>' + data.winePairing.productMatches[i].title + '</p></div></div>')
+        if (data.winePairing.productMatches[i].imageUrl !== "") {
+          $('#wine-grid').append('<div class="cell card wine-card"><div class="image-container"><img src="' + data.winePairing.productMatches[i].imageUrl + '"></div><div class="card-section"><p>' + data.winePairing.productMatches[i].title + '</p></div></div>')
+        }
+        else {
+          $('#wine-grid').append('<div class="cell card wine-card"><div class="image-container"><img src="https://media.giphy.com/media/11gZBGuDnYwdpu/giphy.gif"></div><div class="card-section"><p>' + data.winePairing.productMatches[i].title + '</p></div></div>')
+        }
       }
     }
     else {
@@ -54,10 +99,6 @@ fetch(spoonacularUrl + 'recipes/' + queryString + '/information?apiKey=' + spoon
     }
 
     searchVideo(data.title);
-    // Set background image
-    $("#background-image").attr("src", backgroundImageObject.image);
-    $("#background-image").attr("alt", backgroundImageObject.alt);
-    $("#background-image").attr("style", 'height:' + $("body").height() + 'px');
   })
 
 //Search Videos from Youtube
@@ -77,3 +118,6 @@ function searchVideo(recipe) {
       videoPlayerEl.attr('src', 'https://www.youtube.com/embed/' + video.id);
     })
 }
+
+// Set background image
+$('body').attr('style', 'background-image:url(' + backgroundImageObject.image + ')');
