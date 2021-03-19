@@ -47,7 +47,10 @@ function displayIngredientCards(listOfIngredients) {
   var searchResultContainerEl = $('.search-result-container');
   // create cards
   $(listOfIngredients).each(function (index) {
-    searchResultContainerEl.append('<div class=\'card ingredient-card small-3 draggable\'><div class="image-container" data-ingredient=\'' + listOfIngredients[index].name + '\'><img></div><div class=\'card-section\'><p>' + listOfIngredients[index].name + '</p></div></div>');
+    if (index % 4 === 0) {
+      searchResultContainerEl.append('<div class="grid-x align-justify" style="width: 100%"></div>');
+    }
+    searchResultContainerEl.children('.grid-x').last().append('<div class=\'card ingredient-card draggable\'><div class="image-container" data-ingredient=\'' + listOfIngredients[index].name + '\'><img></div><div class=\'card-section\'><p>' + listOfIngredients[index].name + '</p></div></div>');
     fetch(giphyAPIUrl + "?api_key=" + giphyApiKey + "&q=" + listOfIngredients[index].name + "&limit=1")
       .then(function (response) {
         return response.json();
@@ -60,6 +63,14 @@ function displayIngredientCards(listOfIngredients) {
         $('div[data-ingredient=\'' + listOfIngredients[index].name + '\'').children('img').attr("alt", altTitle);
       });
   })
+  if (searchResultContainerEl.children('.grid-x').last().children().length !== 4) {
+    let gridLength = searchResultContainerEl.children('.grid-x').last().children().length;
+    let gapCount = 4 - gridLength;
+    for (let i = 0; i < gapCount; i++) {
+      console.log(i);
+      searchResultContainerEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
+    }
+  }
 }
 
 // Get Current Tab
@@ -137,12 +148,44 @@ interact('#pot-container').dropzone({
   },
   ondrop: function (event) {
     // clone current card to new location and remove current card
+    let newLocationEl = $('.new-location');
+    if (newLocationEl.children().last().children('.added-ingredient-card').length < 4) {
+      newLocationEl.children().last().children('.fill-card').remove();
+    }
+    if (newLocationEl.children().last().children('.added-ingredient-card').length % 4 === 0) {
+      newLocationEl.append('<div class="grid-x align-justify" style="width: 100%"></div>');
+    }
+
     var originalCard = $(event.relatedTarget);
-    var cardInPot = originalCard.clone().appendTo(".new-location");
+    var cardInPot = originalCard.clone().appendTo($(".new-location").children().last());
     originalCard.remove();
 
+    let searchResultContainerEl = $('.search-result-container');
+
+    if (searchResultContainerEl.children('.grid-x').length > 1) {
+      searchResultContainerEl.children('.grid-x').last().children('.ingredient-card').clone().appendTo(searchResultContainerEl.children('.grid-x').first());
+      searchResultContainerEl.children('.grid-x').last().children('.ingredient-card').remove();
+      if (searchResultContainerEl.children('.grid-x').last().children('.ingredient-card').length === 0) {
+        searchResultContainerEl.children('.grid-x').last().remove();
+      }
+    }
+    else if (searchResultContainerEl.children('.grid-x').length === 1) {
+      searchResultContainerEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
+      if (searchResultContainerEl.children('.grid-x').last().children('.ingredient-card').length === 0) {
+        searchResultContainerEl.children('.grid-x').last().remove();
+      }
+    }
+
+    if (newLocationEl.children('.grid-x').last().children().length !== 4) {
+      let gridLength = newLocationEl.children('.grid-x').last().children().length;
+      let gapCount = 4 - gridLength;
+      for (let i = 0; i < gapCount; i++) {
+        console.log(i);
+        newLocationEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
+      }
+    }
+
     // clear out style and draggable from cloned cards
-    // var cardsInPot = $(".new-location").children(".ingredient-card");
     cardInPot.addClass('added-ingredient-card');
     cardInPot.removeClass('ingredient-card');
     cardInPot.removeClass('draggable');
@@ -165,8 +208,36 @@ interact('#pot-container').dropzone({
 $('#pot-container').on("click", '#remove-ingredient-button', function (e) {
   e.preventDefault();
   var originalCard = $(this).parent();
-  var reinstalledCard = originalCard.clone().appendTo(".search-result-container");
+  let searchResultContainerEl = $('.search-result-container');
+  let newLocationEl = $('.new-location');
+  if (searchResultContainerEl.children('.grid-x').last().children('.fill-card').length > 0) {
+    searchResultContainerEl.children('.grid-x').last().children('.fill-card').remove();
+  }
+  else if (searchResultContainerEl.children('.grid-x').length === 0 || searchResultContainerEl.children('.grid-x').last().children('.ingredient-card').length === 4) {
+    searchResultContainerEl.append('<div class="grid-x align-justify" style="width: 100%"></div>');
+  }
+  var reinstalledCard = originalCard.clone().appendTo(searchResultContainerEl.children('.grid-x').last());
+  console.log(searchResultContainerEl.children('.grid-x').last().children().length);
+  if (searchResultContainerEl.children('.grid-x').last().children().length !== 4) {
+    let gridLength = searchResultContainerEl.children('.grid-x').last().children().length;
+    let gapCount = 4 - gridLength;
+    for (let i = 0; i < gapCount; i++) {
+      searchResultContainerEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
+    }
+  }
+
   originalCard.remove();
+
+  if (newLocationEl.children('.grid-x').last().children('.added-ingredient-card').length === 0) {
+    newLocationEl.children('.grid-x').last().remove();
+  }
+  else if (newLocationEl.children('.grid-x').last().children('.added-ingredient-card').length !== 4) {
+    let gridLength = newLocationEl.children('.grid-x').last().children().length;
+    let gapCount = 4 - gridLength;
+    for (let i = 0; i < gapCount; i++) {
+      newLocationEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
+    }
+  }
 
   reinstalledCard.removeClass('added-ingredient-card');
   reinstalledCard.addClass('ingredient-card');
