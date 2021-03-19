@@ -7,6 +7,11 @@
   z-index: 0;
 }
 
+#wine-grid .wine-card, #wine-grid .wine-card {
+  width: 400px;
+  flex-grow: 0;
+}
+
 .image-container {
   position: relative;
   width: 100%;

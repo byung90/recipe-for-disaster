@@ -1,3 +1,15 @@
+.recipe-list-container .recipe-card, .recipe-list-container .fill-card {
+  width: 400px;
+  flex-grow: 0;
+  -webkit-box-shadow: 2px 3px 11px -2px #000000; 
+  box-shadow: 2px 3px 11px -2px #000000;
+}
+
+.recipe-list-container .fill-card {
+  border: 0;
+  background-color: white;
+}
+
 .image-container{
   position: relative;
   width: 100%;
