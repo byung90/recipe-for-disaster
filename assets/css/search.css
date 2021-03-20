@@ -55,7 +55,7 @@
   touch-action: none;
   user-select: none;
   position: relative;
-  width: 250px;
+  width: 200px;
   flex-grow: 0;
   z-index: 1;
 }
@@ -96,7 +96,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .ingredient-card, .added-ingredient-card .fill-card {
-    width: 220px;
+  .ingredient-card, .added-ingredient-card, .fill-card {
+    width: 200px;
   }
 }
