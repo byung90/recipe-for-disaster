@@ -34,8 +34,6 @@ function displayRecipeCards(recipeList) {
       recipeListContainerEl.children('.grid-x').last().append('<div class="cell card fill-card"></div>');
     }
   }
-
-  $('.entire-container').height(recipeListContainerEl.height() + 226);
 }
 
 //Search for recipe and store to local data
@@ -90,9 +88,3 @@ $('.load-more').on("click", function (e) {
   e.preventDefault();
   searchRecipe(searchCriteria);
 });
-
-
-if ($('.entire-container').height() < $(window).height()) {
-  $('.entire-container').height($(window).height());
-  console.log($('.entire-container').height());
-}

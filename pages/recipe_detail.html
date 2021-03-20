@@ -23,57 +23,59 @@
 </head>
 
 <body>
-  <div class="entire-container">
-    <div class="grid-x">
-      <div class="cell title-container flex-container align-center">
-        <h1>Recipe for Disaster</h1>
+  <div class="grid-x">
+    <div class="entire-container large-8 medium-12 small-12">
+      <div class="grid-x">
+        <div class="cell title-container flex-container align-center">
+          <h1>Recipe for Disaster</h1>
+        </div>
       </div>
-    </div>
-    <div class="grid-x">
-      <div class="cell breadcrumb-container flex-container align-center">
-        <p><a href="./search.html">Search</a> / <a href="./recipe_list.html">Search Results</a></p>
+      <div class="grid-x">
+        <div class="cell breadcrumb-container flex-container align-center">
+          <p><a href="./search.html">Search</a> / <a href="./recipe_list.html">Search Results</a></p>
+        </div>
       </div>
-    </div>
-    <div class="grid-x enter-container">
-      <div class="cell flex-container align-center">
-        <h2 id="title"></h2>
+      <div class="grid-x enter-container">
+        <div class="cell flex-container align-center">
+          <h2 id="title"></h2>
+        </div>
+        <div class="cell flex-container align-center">
+          <p id="credit-and-link">
+          </p>
+        </div>
       </div>
-      <div class="cell flex-container align-center">
-        <p id="credit-and-link">
-        </p>
+      <div class="grid-x">
+        <div id="recipe-image" class="flex-container align-center">
+          <img>
+        </div>
       </div>
-    </div>
-    <div class="grid-x">
-      <div id="recipe-image" class="flex-container align-center">
-        <img>
+      <div id="recipe-summary" class="recipe-info">
+        <h2>Summary</h2>
+        <p></p>
       </div>
-    </div>
-    <div id="recipe-summary" class="recipe-info">
-      <h2>Summary</h2>
-      <p></p>
-    </div>
-    <div id="recipe-ingredients" class="recipe-info">
-      <h2>Ingredients</h2>
-      <div class="grid-x align-justify" style="width: 100%"></div>
-    </div>
-    <div id="recipe-instructions" class="recipe-info">
-      <h2>Instructions</h2>
-      <ol>
-      </ol>
-    </div>
-    <div id="wine-pairing" class="recipe-info">
-      <h2>Wine Pairing</h2>
-      <p></p>
-      <div class="grid-x align-justify" style="width: 100%" id="wine-grid">
+      <div id="recipe-ingredients" class="recipe-info">
+        <h2>Ingredients</h2>
+        <div class="grid-x align-justify" style="width: 100%"></div>
       </div>
-    </div>
-    <div id="video-player" class="recipe-info">
-      <h2>Video of Similar Recipe</h2>
-      <iframe id="videoPlayer" width="1280" height="720" src="https://www.youtube.com/embed/" frameborder="0"
-        allowfullscreen>
-      </iframe>
+      <div id="recipe-instructions" class="recipe-info">
+        <h2>Instructions</h2>
+        <ol>
+        </ol>
+      </div>
+      <div id="wine-pairing" class="recipe-info">
+        <h2>Wine Pairing</h2>
+        <p></p>
+        <div class="grid-x align-justify" style="width: 100%" id="wine-grid">
+        </div>
+      </div>
+      <div id="video-player" class="recipe-info">
+        <h2>Video of Similar Recipe</h2>
+        <iframe id="videoPlayer" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
+
   <!-- Jquery JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Jquery UI JS -->

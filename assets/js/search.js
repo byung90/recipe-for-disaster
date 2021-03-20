@@ -384,8 +384,3 @@ $('body').attr('style', 'background-image:url(' + backgroundImageObject.image + 
 //set button status
 buttonStatuses();
 $('.click-and-drag-instructions').hide();
-
-if ($('.entire-container').height() < $(window).height()) {
-  $('.entire-container').height($(window).height());
-  console.log($('.entire-container').height());
-}

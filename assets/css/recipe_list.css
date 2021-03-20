@@ -59,3 +59,10 @@
 .load-more {
   margin-top: 30px;
 }
+
+/* Responsive Medium */
+@media screen and (max-width: 992px) {
+  .recipe-list-container .recipe-card, .recipe-list-container .fill-card {
+    width: 220px;
+  }
+}

@@ -97,3 +97,20 @@
   height: inherit;
   z-index: 0;
 }
+
+#videoPlayer {
+  width: 100%;
+  height: 720px;
+}
+
+@media screen and (max-width: 992px) {
+  .ingredient-card, .fill-card {
+    width: 220px;
+    flex-grow: 0;
+  }
+
+  #videoPlayer {
+    height: 480px;
+  }
+
+}
