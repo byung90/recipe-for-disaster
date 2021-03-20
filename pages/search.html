@@ -23,169 +23,172 @@
 </head>
 
 <body>
-  <div class="entire-container">
-    <!-- Header & Title Goes Here: Ticket #3 -->
-    <div class="grid-x">
-      <div class="cell title-container flex-container align-center">
-        <h1>Recipe for Disaster</h1>
+  <div class="grid-x">
+    <div class="entire-container large-8 medium-12 small-12">
+      <!-- Header & Title Goes Here: Ticket #3 -->
+      <div class="grid-x">
+        <div class="cell title-container flex-container align-center">
+          <h1>Recipe for Disaster</h1>
+        </div>
       </div>
-    </div>
 
-    <div class="grid-x">
-      <div class="cell enter-container flex-container align-center">
-        <h2>Search Recipes</h2>
+      <div class="grid-x">
+        <div class="cell enter-container flex-container align-center">
+          <h2>Search Recipes</h2>
+        </div>
       </div>
-    </div>
 
 
-    <!-- Make Tabs Here: Ticket #4 -->
-    <ul class="tabs flex-container align-center" data-tabs id="search-criteria" data-deep-link="true">
-      <li class="tabs-title is-active"><a href="#ingredients" aria-selected="true">Ingredients</a></li>
-      <li class="tabs-title"><a href="#cuisine">Cuisine</a></li>
-      <li class="tabs-title"><a href="#diet">Diet</a></li>
-      <li class="tabs-title"><a href="#allergies">Allergies</a></li>
-    </ul>
+      <!-- Make Tabs Here: Ticket #4 -->
+      <ul class="tabs flex-container align-center" id="search-criteria" data-deep-link="true" data-tabs>
+        <li class="tabs-title is-active"><a href="#ingredients" aria-selected="true">Ingredients</a></li>
+        <li class="tabs-title"><a href="#cuisine">Cuisine</a></li>
+        <li class="tabs-title"><a href="#diet">Diet</a></li>
+        <li class="tabs-title"><a href="#allergies">Allergies</a></li>
+      </ul>
 
-    <div class="tabs-content" data-tabs-content="search-criteria">
-      <div class="tabs-panel is-active" id="ingredients">
-        <div class="grid-x">
-          <div id="search-container" class="cell small-6">
-            <div class="input-group search-group">
-              <form id="ingredientSearch" class="flex-container">
-                <input type="search" class="form-control flex-child-auto" id="ingredientSearchInput"
-                  placeholder="Enter an Ingredient">
-                <button type="submit" id="ingredient-search-button" class="button">Search</button>
-              </form>
+      <div class="tabs-content" data-tabs-content="search-criteria">
+        <div class="tabs-panel is-active" id="ingredients">
+          <div class="grid-x">
+            <div id="search-container" class="cell small-6">
+              <div class="input-group search-group">
+                <form id="ingredientSearch" class="flex-container">
+                  <input type="search" class="form-control flex-child-auto" id="ingredientSearchInput"
+                    placeholder="Enter an Ingredient">
+                  <button type="submit" id="ingredient-search-button" class="button">Search</button>
+                </form>
+              </div>
+              <p class="search-instructions">Search for ingredients</p>
+              <p class="click-and-drag-instructions">Click and drag ingredient into your pot! </p>
+              <div class="grid-x search-result-container">
+
+              </div>
             </div>
-            <p class="search-instructions">Search for ingredients</p>
-            <p class="click-and-drag-instructions">Click and drag ingredient into your pot! </p>
-            <div class="grid-x search-result-container">
-
-            </div>
-          </div>
-          <div id="pot-container" class="cell small-6 pot-dropzone">
-            <p class="pot-title">Your Pot!</p>
-            <div class="grid-x new-location">
-              <div class="grid-x align-justify" style="width: 100%"></div>
+            <div id="pot-container" class="cell small-6 pot-dropzone">
+              <p class="pot-title">Your Pot!</p>
+              <div class="grid-x new-location">
+                <div class="grid-x align-justify" style="width: 100%"></div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="tabs-panel" id="cuisine">
+          <form>
+            <div class="grid-x">
+              <div class="cell small-4">
+                <fieldset>
+                  <p><input id="african" type="checkbox" name="cuisine"><label for="african">African</label></p>
+                  <p><input id="american" type="checkbox" name="cuisine"><label for="american">American</label></p>
+                  <p><input id="british" type="checkbox" name="cuisine"><label for="british">British</label></p>
+                  <p><input id="cajun" type="checkbox" name="cuisine"><label for="cajun">Cajun</label>
+                  </p>
+                  <p><input id="caribbean" type="checkbox" name="cuisine"><label for="caribbean">Caribbean</label></p>
+                  <p><input id="chinese" type="checkbox" name="cuisine"><label for="chinese">Chinese</label></p>
+                  <p><input id="easternEuropean" type="checkbox" name="cuisine"><label for="easternEuropean">Eastern
+                      European</label></p>
+                  <p><input id="european" type="checkbox" name="cuisine"><label for="european">European</label>
+                  </p>
+                  <p><input id="french" type="checkbox" name="cuisine"><label for="french">French</label></p>
+                </fieldset>
+              </div>
+              <div class="cell small-4">
+                <fieldset>
+                  <p><input id="german" type="checkbox" name="cuisine"><label for="german">German</label></p>
+                  <p><input id="greek" type="checkbox" name="cuisine"><label for="greek">Greek</label></p>
+                  <p><input id="indian" type="checkbox" name="cuisine"><label for="indian">Indian</label></p>
+                  <p><input id="irish" type="checkbox" name="cuisine"><label for="irish">Irish</label></p>
+                  <p><input id="italian" type="checkbox" name="cuisine"><label for="italian">Italian</label></p>
+                  <p><input id="japanese" type="checkbox" name="cuisine"><label for="japanese">Japanese</label></p>
+                  <p><input id="jewish" type="checkbox" name="cuisine"><label for="jewish">Jewish</label></p>
+                  <p><input id="Korean" type="checkbox" name="cuisine"><label for="Korean">Korean</label>
+                  </p>
+                  <p><input id="latinAmerican" type="checkbox" name="cuisine"><label for="latinAmerican">Latin
+                      American</label></p>
+                </fieldset>
+              </div>
+              <div class="cell small-4">
+                <fieldset>
+                  <p><input id="mediterranean" type="checkbox" name="cuisine"><label
+                      for="mediterranean">Mediterranean</label>
+                  </p>
+                  <p><input id="mexican" type="checkbox" name="cuisine"><label for="mexican">Mexican</label></p>
+                  <p><input id="middleEastern" type="checkbox" name="cuisine"><label for="middleEastern">Middle
+                      Eastern</label></p>
+                  <p><input id="nordic" type="checkbox" name="cuisine"><label for="nordic">Nordic</label></p>
+                  <p><input id="southern" type="checkbox" name="cuisine"><label for="southern">Southern</label></p>
+                  <p><input id="spanish" type="checkbox" name="cuisine"><label for="spanish">Spanish</label></p>
+                  <p><input id="thai" type="checkbox" name="cuisine"><label for="thai">Thai</label></p>
+                  <p><input id="vietnamese" type="checkbox" name="cuisine"><label for="vietnamese">Vietnamese</label>
+                  </p>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tabs-panel" id="diet">
+          <form>
+            <div class="grid-x">
+              <div class="cell small-6">
+                <fieldset>
+                  <p><input id="glutenFree" type="checkbox" name="diet"><label for="glutenFree">Gluten Free</label></p>
+                  <p><input id="ketogenic" type="checkbox" name="diet"><label for="ketogenic">Ketogenic</label></p>
+                  <p><input id="lactoVegetarian" type="checkbox" name="diet"><label
+                      for="lactoVegetarian">Lacto-Vegetarian</label></p>
+                  <p><input id="ovoVegetarian" type="checkbox" name="diet"><label
+                      for="ovoVegetarian">Ovo-Vegetarian</label>
+                  </p>
+                  <p><input id="paleo" type="checkbox" name="diet"><label for="paleo">Paleo</label></p>
+                </fieldset>
+              </div>
+              <div class="cell small-6">
+                <fieldset>
+                  <p><input id="pescetarian" type="checkbox" name="diet"><label for="pescetarian">Pescetarian</label>
+                  </p>
+                  <p><input id="primal" type="checkbox" name="diet"><label for="primal">Primal</label></p>
+                  <p><input id="vegan" type="checkbox" name="diet"><label for="vegan">Vegan</label></p>
+                  <p><input id="vegetarian" type="checkbox" name="diet"><label for="vegetarian">Vegetarian</label></p>
+                  <p><input id="whole30" type="checkbox" name="diet"><label for="whole30">Whole30</label></p>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="tabs-panel" id="allergies">
+          <form>
+            <div class="grid-x">
+              <div class="cell small-6">
+                <fieldset>
+                  <p><input id="dairy" type="checkbox" name="allergies"><label for="dairy">Dairy</label></p>
+                  <p><input id="egg" type="checkbox" name="allergies"><label for="egg">Egg</label></p>
+                  <p><input id="gluten" type="checkbox" name="allergies"><label for="gluten">Gluten</label></p>
+                  <p><input id="grain" type="checkbox" name="allergies"><label for="grain">Grain</label>
+                  </p>
+                  <p><input id="peanut" type="checkbox" name="allergies"><label for="peanut">Peanut</label></p>
+                  <p><input id="seafood" type="checkbox" name="allergies"><label for="seafood">Seafood</label></p>
+                </fieldset>
+              </div>
+              <div class="cell small-6">
+                <fieldset>
+                  <p><input id="sesame" type="checkbox" name="allergies"><label for="sesame">Sesame</label></p>
+                  <p><input id="shellfish" type="checkbox" name="allergies"><label for="shellfish">Shellfish</label></p>
+                  <p><input id="soy" type="checkbox" name="allergies"><label for="soy">Soy</label></p>
+                  <p><input id="sulfite" type="checkbox" name="allergies"><label for="sulfite">Sulfite</label></p>
+                  <p><input id="treeNut" type="checkbox" name="allergies"><label for="treeNut">Tree Nut</label></p>
+                  <p><input id="wheat" type="checkbox" name="allergies"><label for="wheat">Wheat</label></p>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="tabs-panel" id="cuisine">
-        <form>
-          <div class="grid-x">
-            <div class="cell small-4">
-              <fieldset>
-                <p><input id="african" type="checkbox" name="cuisine"><label for="african">African</label></p>
-                <p><input id="american" type="checkbox" name="cuisine"><label for="american">American</label></p>
-                <p><input id="british" type="checkbox" name="cuisine"><label for="british">British</label></p>
-                <p><input id="cajun" type="checkbox" name="cuisine"><label for="cajun">Cajun</label>
-                </p>
-                <p><input id="caribbean" type="checkbox" name="cuisine"><label for="caribbean">Caribbean</label></p>
-                <p><input id="chinese" type="checkbox" name="cuisine"><label for="chinese">Chinese</label></p>
-                <p><input id="easternEuropean" type="checkbox" name="cuisine"><label for="easternEuropean">Eastern
-                    European</label></p>
-                <p><input id="european" type="checkbox" name="cuisine"><label for="european">European</label>
-                </p>
-                <p><input id="french" type="checkbox" name="cuisine"><label for="french">French</label></p>
-              </fieldset>
-            </div>
-            <div class="cell small-4">
-              <fieldset>
-                <p><input id="german" type="checkbox" name="cuisine"><label for="german">German</label></p>
-                <p><input id="greek" type="checkbox" name="cuisine"><label for="greek">Greek</label></p>
-                <p><input id="indian" type="checkbox" name="cuisine"><label for="indian">Indian</label></p>
-                <p><input id="irish" type="checkbox" name="cuisine"><label for="irish">Irish</label></p>
-                <p><input id="italian" type="checkbox" name="cuisine"><label for="italian">Italian</label></p>
-                <p><input id="japanese" type="checkbox" name="cuisine"><label for="japanese">Japanese</label></p>
-                <p><input id="jewish" type="checkbox" name="cuisine"><label for="jewish">Jewish</label></p>
-                <p><input id="Korean" type="checkbox" name="cuisine"><label for="Korean">Korean</label>
-                </p>
-                <p><input id="latinAmerican" type="checkbox" name="cuisine"><label for="latinAmerican">Latin
-                    American</label></p>
-              </fieldset>
-            </div>
-            <div class="cell small-4">
-              <fieldset>
-                <p><input id="mediterranean" type="checkbox" name="cuisine"><label
-                    for="mediterranean">Mediterranean</label>
-                </p>
-                <p><input id="mexican" type="checkbox" name="cuisine"><label for="mexican">Mexican</label></p>
-                <p><input id="middleEastern" type="checkbox" name="cuisine"><label for="middleEastern">Middle
-                    Eastern</label></p>
-                <p><input id="nordic" type="checkbox" name="cuisine"><label for="nordic">Nordic</label></p>
-                <p><input id="southern" type="checkbox" name="cuisine"><label for="southern">Southern</label></p>
-                <p><input id="spanish" type="checkbox" name="cuisine"><label for="spanish">Spanish</label></p>
-                <p><input id="thai" type="checkbox" name="cuisine"><label for="thai">Thai</label></p>
-                <p><input id="vietnamese" type="checkbox" name="cuisine"><label for="vietnamese">Vietnamese</label>
-                </p>
-              </fieldset>
-            </div>
-          </div>
-        </form>
+      <div class="tab-navigation-container">
+        <a class="button" href="" id="previous-btn">Previous</a>
+        <a class="button" href="" id="next-btn">Next</a>
+        <a class="button" href="" id="recipe-search-btn">Search</a>
       </div>
-      <div class="tabs-panel" id="diet">
-        <form>
-          <div class="grid-x">
-            <div class="cell small-6">
-              <fieldset>
-                <p><input id="glutenFree" type="checkbox" name="diet"><label for="glutenFree">Gluten Free</label></p>
-                <p><input id="ketogenic" type="checkbox" name="diet"><label for="ketogenic">Ketogenic</label></p>
-                <p><input id="lactoVegetarian" type="checkbox" name="diet"><label
-                    for="lactoVegetarian">Lacto-Vegetarian</label></p>
-                <p><input id="ovoVegetarian" type="checkbox" name="diet"><label
-                    for="ovoVegetarian">Ovo-Vegetarian</label>
-                </p>
-                <p><input id="paleo" type="checkbox" name="diet"><label for="paleo">Paleo</label></p>
-              </fieldset>
-            </div>
-            <div class="cell small-6">
-              <fieldset>
-                <p><input id="pescetarian" type="checkbox" name="diet"><label for="pescetarian">Pescetarian</label>
-                </p>
-                <p><input id="primal" type="checkbox" name="diet"><label for="primal">Primal</label></p>
-                <p><input id="vegan" type="checkbox" name="diet"><label for="vegan">Vegan</label></p>
-                <p><input id="vegetarian" type="checkbox" name="diet"><label for="vegetarian">Vegetarian</label></p>
-                <p><input id="whole30" type="checkbox" name="diet"><label for="whole30">Whole30</label></p>
-              </fieldset>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="tabs-panel" id="allergies">
-        <form>
-          <div class="grid-x">
-            <div class="cell small-6">
-              <fieldset>
-                <p><input id="dairy" type="checkbox" name="allergies"><label for="dairy">Dairy</label></p>
-                <p><input id="egg" type="checkbox" name="allergies"><label for="egg">Egg</label></p>
-                <p><input id="gluten" type="checkbox" name="allergies"><label for="gluten">Gluten</label></p>
-                <p><input id="grain" type="checkbox" name="allergies"><label for="grain">Grain</label>
-                </p>
-                <p><input id="peanut" type="checkbox" name="allergies"><label for="peanut">Peanut</label></p>
-                <p><input id="seafood" type="checkbox" name="allergies"><label for="seafood">Seafood</label></p>
-              </fieldset>
-            </div>
-            <div class="cell small-6">
-              <fieldset>
-                <p><input id="sesame" type="checkbox" name="allergies"><label for="sesame">Sesame</label></p>
-                <p><input id="shellfish" type="checkbox" name="allergies"><label for="shellfish">Shellfish</label></p>
-                <p><input id="soy" type="checkbox" name="allergies"><label for="soy">Soy</label></p>
-                <p><input id="sulfite" type="checkbox" name="allergies"><label for="sulfite">Sulfite</label></p>
-                <p><input id="treeNut" type="checkbox" name="allergies"><label for="treeNut">Tree Nut</label></p>
-                <p><input id="wheat" type="checkbox" name="allergies"><label for="wheat">Wheat</label></p>
-              </fieldset>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="tab-navigation-container">
-      <a class="button" href="" id="previous-btn">Previous</a>
-      <a class="button" href="" id="next-btn">Next</a>
-      <a class="button" href="" id="recipe-search-btn">Search</a>
     </div>
   </div>
+
 
 
   <!-- Jquery JS -->

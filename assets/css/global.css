@@ -6,7 +6,6 @@ body {
 .entire-container {
   padding: 15px;
   background-color: white;
-  width: 1320px;
   margin: auto;
   position: relative;
 }
@@ -37,3 +36,4 @@ body {
 .button {
   font-family: 'Poppins', sans-serif !important;
 }
+
